@@ -1,0 +1,17 @@
+# Draft of SideQuesst/jstack's .kodiak.toml. It moves to the repo's root in
+# the PR that retires .github/mergify.yml, once Kodiak runs.
+version = 1
+
+[merge]
+# The main ruleset allows only merge commits.
+method = "merge"
+# Approval queues a pull request, as Mergify's auto_merge_conditions did.
+# Kodiak merges only what the main ruleset already lets through: one approval,
+# code owner review, resolved threads, and the go and docs checks.
+require_automerge_label = false
+
+[merge.message]
+# Today's merge commits are "<PR title> (#n)" with the PR body below.
+title = "pull_request_title"
+include_pr_number = true
+body = "pull_request_body"
